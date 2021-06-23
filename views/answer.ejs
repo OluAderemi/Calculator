@@ -1,0 +1,44 @@
+<%- include("partials/header"); -%>
+<!-- <h3>The result is <%= result%></h3>
+<p>Back to the <a href="/">Calculator</a></p> -->
+<div class="Row">
+  <div class="Box2">
+    <form action="/" method="post" id=keyboard>
+      <div>
+        <textarea id="output" rows="5" cols="75" name="question"><%= result%></textarea>
+      </div>
+      <div>
+        <input type="button" value="7">
+        <input type="button" value="8">
+        <input type="button" value="9">
+        <input type="button" value="/">
+      </div>
+      <div>
+        <input type="button" value="4">
+        <input type="button" value="5">
+        <input type="button" value="6">
+        <input type="button" value="*">
+      </div>
+      <div>
+        <input type="button" value="1">
+        <input type="button" value="2">
+        <input type="button" value="3">
+      </div>
+      <div>
+        <input type="button" value="+">
+        <input type="button" value="0">
+        <input type="button" value="-">
+
+      </div>
+      <div>
+
+
+<button type="submit" name="tally">=</button>
+
+      </div>
+    </form>
+    <!-- <input type='text' id='output' /> -->
+
+  </div>
+</div>
+<%- include("partials/footer"); -%>

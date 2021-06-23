@@ -1,0 +1,69 @@
+<%- include("partials/header"); -%>
+
+<div class="container my-4">
+
+<hr class="mb-5"/>
+
+<form action="/" method="post" id=keyboard>
+<div class="calculator card">
+
+    <input id="output" name="question" class="calculator-screen" placeholder="0" value="" ></input>
+    <input id="output"  class="answer-screen" name="" value="<%=result%>"></input>
+    <div class="calculator-keys">
+
+      <input type="button" class="operator btn btn-info" value="+">
+      <input type="button" class="operator btn btn-info" value="-">
+      <input type="button" class="operator btn btn-info" value="*">
+      <input type="button" class="operator btn btn-info" value="/">
+
+      <input type="button" value="7" class="btn btn-light waves-effect">
+      <input type="button" value="8" class="btn btn-light waves-effect">
+      <input type="button" value="9" class="btn btn-light waves-effect">
+
+
+
+      <input type="button" value="4" class="btn btn-light waves-effect">
+      <input type="button" value="5" class="btn btn-light waves-effect">
+      <input type="button" value="6" class="btn btn-light waves-effect">
+
+
+
+      <input type="button" value="1" class="btn btn-light waves-effect">
+      <input type="button" value="2" class="btn btn-light waves-effect">
+      <input type="button" value="3" class="btn btn-light waves-effect">
+
+
+
+      <input type="button" value="0" class="btn btn-light waves-effect">
+      <input type="button" class="decimal function btn btn-secondary" value=".">
+      <a href="/"><input type="button" class="all-clear function btn btn-danger btn-sm" value="AC"></a>
+      <input type="button" class="btn btn-danger btn-default" value="BACKSPACE">
+      <button type="submit" class="equal-sign operator btn btn-default" value="">=</button>
+
+    </div>
+  </div>
+    </form>
+
+</div>
+
+<div class="container my-4">
+  <div class="box" id="heading">
+
+    <h1 class ="h1box">History</h1>
+  </div>
+  <div class="box">
+
+    <% history.forEach(function(item){ %>
+      <form class="" action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name = "checkbox" value="<%=item._id%>" onchange="this.form.submit()" >
+          <p><%=  item.expression  %></p>
+        </div>
+      </form>
+
+    <% }); %>
+
+  </div>
+  </div>
+
+<%- include("partials/footer"); -%>
