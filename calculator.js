@@ -31,10 +31,11 @@ const item2 = new Item({
 
 
  const result = "";
-
+ 
 
 app.get("/", function(req, res) {
-
+const operatorId = req.body.add;
+console.log(operatorId);
   Item.find({}, function(err, foundItems){
     if (foundItems.length === 0){
       Item.insertMany(item2, function(err){
