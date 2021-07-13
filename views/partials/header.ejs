@@ -6,8 +6,10 @@
   <title>Calculator</title>
   <meta charset="utf-8">
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="/css/styles.css">
   <script type="text/javascript">
     var g = {};
@@ -15,9 +17,9 @@
     function assignListener() {
       /*event listener for keyboard*/
       g.keyboard = document.querySelector("#keyboard");
-      document.onkeydown = function (e) {
+      document.onkeydown = function(e) {
         return false;
-}
+      }
       g.keyboard.addEventListener("click", addToTextBox, false);
     }
 
@@ -30,20 +32,20 @@
       if (e.target.type == 'button') {
         switch (e.target.value) {
           case "*":
-          if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "*" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
-         console.log(output.value);
-           document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "*" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
+              console.log(output.value);
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-         }
-         else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "/" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
-console.log(output.value);
-          document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "/" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
+              console.log(output.value);
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-        }
-            else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "+") {
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "+") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '*';
-            }else if (document.getElementById('output').value === "-") {
+            } else if (document.getElementById('output').value === "-") {
               document.getElementById('output').value = '';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '*';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "/") {
@@ -51,68 +53,63 @@ console.log(output.value);
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "*") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-            }
-            else if (document.getElementById('output').value === "") {
+            } else if (document.getElementById('output').value === "") {
               document.getElementById('output').value = '';
-            }
-            else {
+            } else {
               document.getElementById('output').value += '*';
             }
             break;
           case "/":
-          if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "*" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
-         console.log(output.value);
-           document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "*" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
+              console.log(output.value);
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-         }
-         else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "/" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
-  console.log(output.value);
-          document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "/" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
+              console.log(output.value);
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-        }
-            else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "+") {
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "+") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '/';
-            }else if (document.getElementById('output').value === "-") {
+            } else if (document.getElementById('output').value === "-") {
               document.getElementById('output').value = '';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '/';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "*") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '/';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "/") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
-            }else if (document.getElementById('output').value === "") {
+            } else if (document.getElementById('output').value === "") {
               document.getElementById('output').value = '';
-            }
-             else {
+            } else {
               document.getElementById('output').value += '/';
             }
             break;
           case "+":
-          if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "*" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
-          console.log(output.value);
-           document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "*" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
+              console.log(output.value);
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-          }
-          else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "/" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
-          console.log(output.value);
-          document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "/" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
+              console.log(output.value);
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
 
-          }
-            else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "*") {
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "*") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '+';
-            }else if (document.getElementById('output').value === "-") {
+            } else if (document.getElementById('output').value === "-") {
               document.getElementById('output').value = '';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '+';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "/") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '+';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "+") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
-            }
-            else if (document.getElementById('output').value === "") {
+            } else if (document.getElementById('output').value === "") {
               document.getElementById('output').value = '';
-            }
-            else {
+            } else {
               document.getElementById('output').value += '+';
             }
             break;
@@ -122,21 +119,149 @@ console.log(output.value);
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '-';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "*") {
               document.getElementById('output').value += '-';
+            } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "/") {
               document.getElementById('output').value += '-';
             } else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "-") {
               document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
             } else if (document.getElementById('output').value === "") {
               document.getElementById('output').value = '-';
-            }
-
-            else {
+            } else {
               document.getElementById('output').value += '-';
             }
 
 
 
             break;
+          case ".":
+          if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "1") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "2") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "3") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "4") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "5") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "6") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "7") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "8") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "9") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "." && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === "0") {
+            console.log(output.value);
+            document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          }else if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+              document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+            } else {
+              document.getElementById('output').value += '.';
+            }
+            break;
+          // case "1":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "1" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '1';
+          //   }
+          //
+          //   break;
+          // case "2":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "2" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '2';
+          //   }
+          //
+          //   break;
+          // case "3":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "3" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '3';
+          //   }
+          //
+          //   break;
+          // case "4":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "4" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '4';
+          //   }
+          //
+          //   break;
+          // case "5":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "5" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '5';
+          //   }
+          //
+          //   break;
+          // case "6":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "6" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '6';
+          //   }
+          //
+          //   break;
+          // case "7":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "7" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '7';
+          //   }
+          //
+          //   break;
+          // case "8":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "8" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '8';
+          //   }
+          //
+          //   break;
+          // case "9":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "9" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '9';
+          //   }
+          //
+          //   break;
+          // case "0":
+          //   if (document.getElementById('output').value.charAt(document.getElementById('output').value.length - 2) === "0" && document.getElementById('output').value.charAt(document.getElementById('output').value.length - 1) === ".") {
+          //     console.log(output.value);
+          //     document.getElementById('output').value = document.getElementById('output').value.slice(0, -1) + '';
+          //   } else {
+          //     document.getElementById('output').value += '0';
+          //   }
+          //
+          //   break;
+
           case "AC":
             document.getElementById('output').value += "";
             break;

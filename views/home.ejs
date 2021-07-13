@@ -1,11 +1,11 @@
 <%- include("partials/header"); -%>
 
-<div class="container my-4">
+<div class="row container my-4">
 
 <hr class="mb-5"/>
 
 <form action="/" method="post" id=keyboard>
-<div class="calculator card">
+<div class="col-md-6 calculator card">
 
     <input id="output" name="question" class="calculator-screen" placeholder="0" value="" readonly></input>
     <input id=""  class="answer-screen" name="" value="<%=result%>" readonly></input>
@@ -43,27 +43,27 @@
     </div>
   </div>
     </form>
+    <div class="col-md-6 container my-4">
+      <div class="box" id="heading">
 
+        <h1 class ="h1box">History</h1>
+      </div>
+      <div class="scroll-style box">
+
+        <% history.forEach(function(item){ %>
+          <form class="" action="/delete" method="post">
+            <div class="item">
+              <input type="checkbox" name = "checkbox" value="<%=item._id%>" onchange="this.form.submit()" >
+              <p><%=  item.expression  %></p>
+            </div>
+          </form>
+
+        <% }); %>
+
+      </div>
+      </div>
 </div>
 
-<div class="container my-4">
-  <div class="box" id="heading">
 
-    <h1 class ="h1box">History</h1>
-  </div>
-  <div class="box">
-
-    <% history.forEach(function(item){ %>
-      <form class="" action="/delete" method="post">
-        <div class="item">
-          <input type="checkbox" name = "checkbox" value="<%=item._id%>" onchange="this.form.submit()" >
-          <p><%=  item.expression  %></p>
-        </div>
-      </form>
-
-    <% }); %>
-
-  </div>
-  </div>
 
 <%- include("partials/footer"); -%>
