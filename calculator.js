@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 
 const ejs = require("ejs");
@@ -11,8 +12,15 @@ const jQuery = require('jquery')(new jsdom.JSDOM().window);
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
-
-mongoose.connect("mongodb+srv://admin-sheni:gracias80@cluster0.kp58k.mongodb.net/calculatorDB", {useNewUrlParser: true, useUnifiedTopology: true});
+const uri = "mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kp58k.mongodb.net/calculatorDB"
+console.log(process.env.DATABASE_URL);
+console.log(""+uri+"");
+mongoose.connect(process.env.DATABASE_URL).then(connection => {
+        console.log('Connected to MongoDB')
+    })
+    .catch(error => {
+      console.log(error.message)
+     });
 
 const itemsSchema={
   expression: String
