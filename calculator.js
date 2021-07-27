@@ -12,9 +12,7 @@ const jQuery = require('jquery')(new jsdom.JSDOM().window);
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
-const uri = "mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kp58k.mongodb.net/calculatorDB"
-console.log(process.env.DATABASE_URL);
-console.log(""+uri+"");
+
 mongoose.connect(process.env.DATABASE_URL).then(connection => {
         console.log('Connected to MongoDB')
     })
